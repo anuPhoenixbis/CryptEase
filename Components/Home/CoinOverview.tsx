@@ -21,12 +21,8 @@ async function CoinOverview() {
         fetcher<OHLCData[]>('/coins/bitcoin/ohlc',{
           vs_currency:'usd',
           days:1,
-          // interval:'minutely',
-          // precision:'full'
         }),
       ])
-      // console.log(coin)
-      // console.log(coinOHLCData)
       // fetching the coin details data for bitcoin using the fetcher function
       return (
         <div id="coin-overview">
@@ -47,7 +43,6 @@ async function CoinOverview() {
   
         </div>
       )
-      // console.log(coin)
     } catch (error) {
       console.error('Error while fetching coin details',error)
       return <CoinOverviewFallback/>

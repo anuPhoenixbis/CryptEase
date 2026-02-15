@@ -111,14 +111,9 @@ export const PERIOD_BUTTONS: { value: Period; label: string }[] = [
   { value: '6months', label: '6M' },
   { value: 'yearly', label: '1Y' },
 ];
-export const PERIOD_TO_DAYS: Record<Period, number > = {
-  daily: 1,
-  weekly: 7,
-  monthly: 30,
-  '3months': 90,
-  '6months': 180,
-  yearly: 365,
-};
+export const PERIOD_TO_DAYS: Record<Period, number> = Object.fromEntries(
+  Object.entries(PERIOD_CONFIG).map(([key, value]) => [key, value.days]),
+) as Record<Period, number>;
 
 export const LIVE_INTERVAL_BUTTONS: { value: '1s' | '1m'; label: string }[] = [
   { value: '1s', label: '1s' },

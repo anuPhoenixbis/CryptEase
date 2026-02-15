@@ -27,6 +27,10 @@ function CandleStickCharts({
     //useTransition is a React hook that lets you mark some state updates as non-urgent (low priority) so they don’t block the UI.
     // In simple terms:
     // It keeps your app responsive while heavy updates are happening.
+    useEffect(()=>{
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setOHLCData(data ?? [])
+    },[data,coinId])
 
     const fetchOHLCData = async(selectedPeriod:Period)=>{
         try {
