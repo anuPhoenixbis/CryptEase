@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Crypt Ease",
+  title: "Coin Pulse",
   description: "A cryptocurrency price tracker. Stay updated with real-time prices, market trends, and portfolio management tools. Your one-stop solution for all things crypto.",
 };
 

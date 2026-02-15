@@ -13,7 +13,7 @@ export async function fetcher<T>(
     params?: QueryParams,
     revalidate = 60
 ) : Promise<T>{
-    // fecthing data from coingecko api using the endpoint and params provided
+    // fetching data from coingecko api using the endpoint and params provided
     const url = qs.stringifyUrl({
         url: `${BASE_URL}/${endpoint}`,
         query: params
@@ -31,6 +31,8 @@ export async function fetcher<T>(
     if(!response.ok){
         const errorBody: CoinGeckoErrorBody = await response.json()
         .catch(()=>({}))
+        // console.log(errorBody)
+        console.log(response.statusText)
 
         throw new Error(`API Error: ${response.status} : ${errorBody.error || response.statusText}`)
     }

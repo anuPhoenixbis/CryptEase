@@ -12,7 +12,7 @@ function Headers() {
     <header>
         <div className="main-container inner">
             <Link href='/'>
-                <Image src={logo} alt="Crypt Ease Logo" width={132} height={40} />
+                <Image src={logo} alt="Coin Pulse Logo" width={132} height={40} />
             </Link>
             <nav>
                 <Link href='/' className={cn('nav-link',{
