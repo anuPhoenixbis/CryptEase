@@ -35,5 +35,5 @@ export async function fetcher<T>(
         throw new Error(`API Error: ${response.status} : ${errorBody.error || response.statusText}`)
     }
 
-    return response.json()
+    return response.json() 
 }
