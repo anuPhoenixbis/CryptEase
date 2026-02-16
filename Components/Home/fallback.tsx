@@ -72,3 +72,62 @@ export function TrendingCoinsFallback() {
     </div>
   )
 }
+
+/**
+ * CategoriesFallback: Loading skeleton for the categories table
+ * Matches the #categories-fallback CSS styling
+ */
+export function CategoriesFallback() {
+  const dummyRows = Array.from({ length: 6 }, (_, i) => ({ id: `cat-skel-${i}` }))
+
+  const skeletonColumns: DataTableColumn<{ id: string }>[] = [
+    {
+      header: 'Category',
+      cellClassName: 'category-cell',
+      cell: () => <Skeleton className="category-skeleton" />,
+    },
+    {
+      header: 'Top Gainers',
+      cellClassName: 'top-gainers-cell',
+      cell: () => (
+        <div className="flex items-center gap-2">
+          <Skeleton className="coin-skeleton" />
+          <Skeleton className="coin-skeleton" />
+          <Skeleton className="coin-skeleton" />
+        </div>
+      ),
+    },
+    {
+      header: '24h Change',
+      cellClassName: 'change-header-cell',
+      cell: () => (
+        <div className="change-cell">
+          <Skeleton className="value-skeleton-sm" />
+          <Skeleton className="change-icon" />
+        </div>
+      ),
+    },
+    {
+      header: 'Market Cap',
+      cellClassName: 'market-cap-cell',
+      cell: () => <Skeleton className="value-skeleton-lg" />,
+    },
+    {
+      header: '24h Volume',
+      cellClassName: 'volume-cell',
+      cell: () => <Skeleton className="value-skeleton-md" />,
+    },
+  ]
+
+  return (
+    <div id="categories-fallback">
+      <h4>Top Categories</h4>
+      <DataTable
+        data={dummyRows}
+        columns={skeletonColumns}
+        rowKey={(r) => r.id}
+        tableClassName="mt-3"
+      />
+    </div>
+  )
+}
