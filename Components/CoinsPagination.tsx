@@ -24,7 +24,9 @@ function CoinsPagination({
             <PaginationItem className='pagination-control prev'>
                 <PaginationPrevious 
                     onClick={()=> currentPage > 1 && handlePageChange(currentPage-1)}
-                    className={currentPage==1 ? 'control-disabled' : 'control-button'}/>
+                    aria-disabled={currentPage==1}
+                    tabIndex={currentPage===1 ? -1 : 0}
+                    className={currentPage==1 ? 'control-disabled':'control-button'}/>
             </PaginationItem>
 
             <div className="pagination-pages">
@@ -48,6 +50,8 @@ function CoinsPagination({
             <PaginationItem className='pagination-control next'>
                 <PaginationNext 
                     onClick={()=> !isLastPage && handlePageChange(currentPage+1)}
+                    aria-disabled={isLastPage}
+                    tabIndex={isLastPage ? -1 : 0}
                     className={isLastPage ? 'control-disabled' : 'control-button'}/>
             </PaginationItem>
         </PaginationContent>
